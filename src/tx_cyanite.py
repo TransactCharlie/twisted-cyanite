@@ -15,7 +15,7 @@ if __name__ == "__main__":
     # Register the HTTP Interfaces
     reactor.listenTCP(8080, server.Site(http_endpoints()), interface="0.0.0.0")
 
-    # Register the Metrics TCP Interfaces
+    # Register the Metrics TCP Interfaces (Lines and Pickles)
     reactor.listenTCP(2003, metrics_input_line_factory())
     reactor.listenTCP(2004, metrics_input_pickle_factory())
 

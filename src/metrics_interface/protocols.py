@@ -73,6 +73,8 @@ class PickleProtocol(Protocol):
 
             for d in unpickled:
                 log.msg(d)
+                # TODO: Store metrics in backingstore!
+                # TODO: Store paths in the pathstore!
 
         except pickle.UnpicklingError:
             log.err('invalid pickle received')
@@ -90,6 +92,8 @@ class LineProtocol(LineReceiver):
 
     def lineReceived(self, line):
         log.msg(line)
+        # TODO: Store metrics in backingstore!
+        # TODO: Store paths in the pathstore!
 
 class metrics_input_line_factory(Factory):
     """Factory for collecting metrics from connections"""
