@@ -1,14 +1,15 @@
 __author__ = 'charlie'
 
-from twisted.internet.protocol import Protocol
+from twisted.internet.protocol import Protocol, Factory
 from twisted.protocols.basic import LineReceiver
 from twisted.python import log
 from struct import unpack, calcsize
 import cPickle as pickle
-from twisted.internet.protocol import Factory
 
 
 class PickleProtocol(Protocol):
+    # This code is lifted straight from the unpickle handles in carbon..
+    # Don't blame me! - use lines instead please!!!!
 
     paused = False
     structFormat = "!I"
